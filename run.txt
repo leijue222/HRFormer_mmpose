@@ -1,0 +1,3 @@
+docker pull pytorch/pytorch:1.7.1-cuda11.0-cudnn8-runtime
+sh set_env.sh
+sh my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192
