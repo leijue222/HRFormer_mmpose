@@ -46,7 +46,7 @@ norm_cfg = dict(type='SyncBN', requires_grad=True)
 # norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='TopDown',
-    pretrained='./hrt_base_coco_256x192.pth', # Set the path to pretrained backbone here
+    pretrained='./hrt_base_imagenet_pretrained_top1_828.pth', # Set the path to pretrained backbone here
     backbone=dict(
         type='HRT',
         in_channels=3,

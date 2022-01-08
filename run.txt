@@ -1,3 +1,11 @@
+1. 复制hrformer 在ImageNet的 base model
+
+cp -r InterFormer/models/pytorch/hrformer/hrt_base_imagenet_pretrained_top1_828.pth HRFormer_mmpose/
+复制到HRFormer_mmpose这个仓库的根目录下，即与run.txt同级目录（必须）
+
+2. 配置环境
 docker pull pytorch/pytorch:1.7.1-cuda11.0-cudnn8-runtime
 sh set_env.sh
+
+3. 开跑
 sh my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192

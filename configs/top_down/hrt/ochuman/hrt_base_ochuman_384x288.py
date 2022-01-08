@@ -46,7 +46,7 @@ channel_cfg = dict(
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='TopDown',
-    pretrained='/media/ming-t/F83438063437C702/project/HRFormer-main/pose/hrt_base_coco_384x288.pth', # Set the path to pretrained backbone here
+    pretrained='./hrt_base_imagenet_pretrained_top1_828.pth', # Set the path to pretrained backbone here
     backbone=dict(
         type='HRT',
         in_channels=3,
