@@ -168,10 +168,10 @@ val_pipeline = [
 test_pipeline = val_pipeline
 
 data = dict(
-    samples_per_gpu=32,
+    samples_per_gpu=24,
     workers_per_gpu=2,
-    val_dataloader=dict(samples_per_gpu=512),
-    test_dataloader=dict(samples_per_gpu=512),
+    val_dataloader=dict(samples_per_gpu=256),
+    test_dataloader=dict(samples_per_gpu=256),
     train=dict(
         type='TopDownCrowdPoseDataset',
         ann_file=f'{data_root}/json/trainval.json',
