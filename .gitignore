@@ -108,7 +108,7 @@ venv.bak/
 .mypy_cache/
 
 # custom
-mmpose/version.py
+# mmpose/version.py
 /models
 /data
 .vscode
