@@ -1,6 +1,7 @@
 log_level = 'INFO'
 load_from = None
-resume_from = '/mnt/blob/HRFormer_mmpose/mmpose-logs/hrt_base_crowdpose_256x192/epoch_30.pth'
+# resume_from = '/mnt/blob/HRFormer_mmpose/mmpose-logs/hrt_base_crowdpose_256x192/epoch_30.pth'
+resume_from = None
 dist_params = dict(backend='nccl')
 workflow = [('train', 1)]
 checkpoint_config = dict(interval=5, create_symlink=False)
