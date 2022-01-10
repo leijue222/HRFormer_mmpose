@@ -168,7 +168,7 @@ val_pipeline = [
 test_pipeline = val_pipeline
 
 data = dict(
-    samples_per_gpu=24,
+    samples_per_gpu=32,
     workers_per_gpu=8,
     val_dataloader=dict(samples_per_gpu=256),
     test_dataloader=dict(samples_per_gpu=256),
