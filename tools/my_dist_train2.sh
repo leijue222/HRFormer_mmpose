@@ -10,13 +10,13 @@ GPUS=$2
 # python -m pip install -r requirements.txt
 # pip install -e .
 
-DATA_ROOT="../MutiTransPose/data/crowdpose"
+DATA_ROOT="/mnt/blob/MutiTransPose/data/crowdpose"
 # DATA_ROOT="/media/yiwei/yiwei-01/datasets/pose/crowdpose"
 PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 
 
 python -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=12345 \
-    $(dirname "$0")/train.py $CONFIG --launcher pytorch --work-dir "$(dirname $0)/../mmpose-logs" \
+    $(dirname "$0")/train.py $CONFIG --launcher pytorch --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
     --cfg-options data_cfg.bbox_file="$DATA_ROOT/json/crowdpose_test.json" \
                     data.train.ann_file="$DATA_ROOT/json/crowdpose_trainval.json" \
                     data.train.img_prefix="$DATA_ROOT/images/" \

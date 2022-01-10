@@ -1,6 +1,6 @@
 log_level = 'INFO'
 load_from = None
-resume_from = './mmpose-logs/hrt_base_crowdpose_256x192/epoch_30.pth'
+resume_from = '/mnt/blob/HRFormer_mmpose/mmpose-logs/hrt_base_crowdpose_256x192/epoch_30.pth'
 dist_params = dict(backend='nccl')
 workflow = [('train', 1)]
 checkpoint_config = dict(interval=5, create_symlink=False)
@@ -42,11 +42,11 @@ channel_cfg = dict(
     ])
 
 # model settings
-norm_cfg = dict(type='SyncBN', requires_grad=True)
-# norm_cfg = dict(type='BN', requires_grad=True)
+# norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='TopDown',
-    pretrained='./hrt_base_imagenet_pretrained_top1_828.pth', # Set the path to pretrained backbone here
+    pretrained='/mnt/blob/InterFormer/models/pytorch/hrformer/hrt_base_imagenet_pretrained_top1_828.pth', # Set the path to pretrained backbone here
     backbone=dict(
         type='HRT',
         in_channels=3,
@@ -104,7 +104,7 @@ model = dict(
         shift_heatmap=True,
         modulate_kernel=11))
 
-data_root = "../MutiTransPose/data/crowdpose" # Set the data path here
+data_root = "/mnt/blob/MutiTransPose/data/crowdpose" # Set the data path here
 data_cfg = dict(
     image_size=[192, 256],
     heatmap_size=[48, 64],
