@@ -9,5 +9,6 @@ bash set_env.sh
 
 3. 开跑
 # bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_copy
-bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b28
-bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b32
+# bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b28
+# bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b32
+bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24
