@@ -10,8 +10,8 @@ GPUS=$2
 # python -m pip install -r requirements.txt
 # pip install -e .
 
-DATA_ROOT="/mnt/blob/MutiTransPose/data/crowdpose"
-# DATA_ROOT="/media/yiwei/yiwei-01/datasets/pose/crowdpose"
+# DATA_ROOT="/mnt/blob/MutiTransPose/data/crowdpose"
+DATA_ROOT="/media/yiwei/yiwei-01/datasets/pose/crowdpose"
 PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 
 if [[ "$1" = @(*16xgpu*) ]]; then
@@ -31,7 +31,8 @@ if [[ "$1" = @(*16xgpu*) ]]; then
         --master_port=$MASTER_PORT \
         $(dirname "$0")/train.py $CONFIG \
         --launcher pytorch \
-        --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
+        # --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
+        --work-dir "$(dirname $0)/../mmpose-logs" \
         --cfg-options data_cfg.bbox_file="$DATA_ROOT/json/crowdpose_test.json" \
                       data.train.ann_file="$DATA_ROOT/json/crowdpose_trainval.json" \
                       data.train.img_prefix="$DATA_ROOT/images/" \
@@ -57,7 +58,8 @@ elif [[ "$1" = @(*32xgpu*) ]]; then
         --master_port=$MASTER_PORT \
         $(dirname "$0")/train.py $CONFIG \
         --launcher pytorch \
-        --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
+        # --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
+        --work-dir "$(dirname $0)/../mmpose-logs" \
         --cfg-options data_cfg.bbox_file="$DATA_ROOT/json/crowdpose_test.json" \
                       data.train.ann_file="$DATA_ROOT/json/crowdpose_trainval.json" \
                       data.train.img_prefix="$DATA_ROOT/images/" \
@@ -68,7 +70,8 @@ elif [[ "$1" = @(*32xgpu*) ]]; then
 
 else
     python -m torch.distributed.launch --nproc_per_node=$GPUS --master_port=12345 \
-        $(dirname "$0")/train.py $CONFIG --launcher pytorch --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
+        $(dirname "$0")/train.py $CONFIG --launcher pytorch \
+        --work-dir "$(dirname $0)/../mmpose-logs" \
         --cfg-options data_cfg.bbox_file="$DATA_ROOT/json/crowdpose_test.json" \
                       data.train.ann_file="$DATA_ROOT/json/crowdpose_trainval.json" \
                       data.train.img_prefix="$DATA_ROOT/images/" \
@@ -76,5 +79,5 @@ else
                       data.val.img_prefix="$DATA_ROOT/images/" \
                       data.test.ann_file="$DATA_ROOT/json/crowdpose_test.json" \
                       data.test.img_prefix="$DATA_ROOT/images/"
-
+    # --work-dir "/mnt/blob/InterFormer/hrformer-mmpose-logs" \
 fi
