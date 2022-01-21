@@ -12,5 +12,8 @@ bash set_env.sh
 # bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b28
 # bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b32
 # bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24
-bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre
-bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre_adam
+# bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre
+# bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre_adam
+
+bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre_adamw_1e
+bash my_run_dist.sh top_down/hrt/crowdpose/hrt_base_crowdpose_256x192_b24_nopre_adam_5e
